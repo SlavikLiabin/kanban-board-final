@@ -1,12 +1,12 @@
 import style from './layout.module.css';
-import {} from '../Types/types';
+import { childrenProps } from '../Types/types';
 
 
-export const Layout = () => {
+export const Layout = ({ children }: childrenProps) => {
 
     return (
-        <div>
-            
+        <div className={style.layout}>
+            { children}
         </div>
     )
 }
