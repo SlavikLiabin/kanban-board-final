@@ -5,7 +5,10 @@ import { Column } from './Column/column';
 export const Board = () => {
 
     return (
-        <div>
+        <div className={style.board}>
+            <Column />
+            <Column />
+            <Column />
             <Column />
         </div>
     )
