@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 
-export interface childrenProps {
+export type TchildrenProps = {
     children: ReactNode;
 }
+

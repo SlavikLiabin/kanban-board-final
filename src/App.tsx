@@ -8,7 +8,7 @@ import { Board } from './Components/Board/board';
 
 function App() {
     return (
-        <>
+        <div className={'app'}>
             <Layout>
                 <Header />
                     <main>
@@ -16,7 +16,7 @@ function App() {
                     </main>
                 <Footer />
             </Layout>
-        </>
+        </div>
     );
 }
 

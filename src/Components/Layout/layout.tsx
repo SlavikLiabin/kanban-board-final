@@ -1,8 +1,8 @@
 import style from './layout.module.css';
-import { childrenProps } from '../Types/types';
+import { TchildrenProps } from '../Types/types';
 
 
-export const Layout = ({ children }: childrenProps) => {
+export const Layout = ({ children }: TchildrenProps) => {
 
     return (
         <div className={style.layout}>

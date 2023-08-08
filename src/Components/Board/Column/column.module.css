@@ -1,9 +1,35 @@
 .column {
     position: relative;
-    top: 30px;
+    top: 25px;
     width: 282px;
-    height: 200px;
     background-color: #EBECF0;
     border-radius: 10px;
+    box-shadow: 2px -2px 2px rgb(186, 185, 185);
+}
+
+.header {
+    width: 232px;
+    height: 17px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.body {
+    width: 258px;
+    background-color: #EBECF0;
+}
+
+/* .footer {
+
+} */
+
+.button {
+    border: none;
+    cursor: pointer;
+    margin: 0px 0px 5px 5px ;
 }
 
