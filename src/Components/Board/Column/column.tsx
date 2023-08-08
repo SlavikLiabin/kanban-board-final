@@ -5,10 +5,20 @@ import { Card } from './Card/card';
 export const Column = () => {
 
     return (
-        <div className={style.column}>
+        <div className={style.column}> 
             <div className={style.header}><h2></h2></div>
-            <div className={style.wrapper}>
+            <div className={style.wrapper + ' ' + style.scroll}>
                 <div className={style.body}>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
                     <Card />
                     <Card />
                     <Card />
