@@ -13,13 +13,23 @@
 }
 
 .svgArrowUp {
-    margin: 0px 0px 15px 5px;
+    margin: 0px 0px 15px 0px;
     width: 12px;
     height: 7.42px;
 }
 
 .svgArrowDown {
+    margin: 0px 0px 15px 0px;
+    width: 12px;
+    height: 7.42px;
+}
+
+.buttonArrow {
+    padding: 0px;
     margin: 0px 0px 15px 5px;
     width: 12px;
     height: 7.42px;
+    border: none;
+    background-color: #0067A3;
+    cursor: pointer;
 }
