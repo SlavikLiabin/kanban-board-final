@@ -1,5 +1,5 @@
 import style from './card.module.css';
-import { SvgCross } from '../../../Svg/svgCross';
+import { SvgCross } from '../../../Shared/Svg/svgCross';
 import { ButtonСross } from '../../../Shared/Buttons/buttonСross';
 
 

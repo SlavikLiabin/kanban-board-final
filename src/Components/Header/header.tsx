@@ -1,7 +1,7 @@
 import style from './header.module.css';
-import { UserAvatr } from '../Svg/userAvatar';
-import { ArrowDown } from '../Svg/arrowDown';
-import { ArrowUp } from  '../Svg/arrowUp';
+import { UserAvatr } from '../Shared/Svg/userAvatar';
+import { ArrowDown } from '../Shared/Svg/arrowDown';
+import { ArrowUp } from  '../Shared/Svg/arrowUp';
 import { useState } from 'react';
 
 export const Header = () => {
