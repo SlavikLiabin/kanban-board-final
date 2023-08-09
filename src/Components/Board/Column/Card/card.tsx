@@ -8,8 +8,8 @@ export const Card = () => {
     return (
         <>
             <div className={style.card}>
-                <div className={style.fill}>card</div>
-                <div className={style.button}>
+                <div className={style.fillFieldTask}>card</div>
+                <div className={style.crossButtonDispleyd}>
                     <ButtonСross>
                         <SvgCross />
                     </ButtonСross>

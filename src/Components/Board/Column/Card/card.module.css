@@ -9,14 +9,14 @@
     box-shadow: 1px 1px 1px rgb(186, 185, 185);
 }
 
-.fill {
+.fillFieldTask {
     width: 233px;
 }
 
-.button {
+.crossButtonDispleyd {
     display: none;
 }
 
-.card:hover > .button {
+.card:hover > .crossButtonDispleyd {
     display: flex;
 }

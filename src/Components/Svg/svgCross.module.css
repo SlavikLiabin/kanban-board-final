@@ -1,5 +1,25 @@
-.svg {
+.svgCross {
     width: 25px;
     height: 25px;
     border-radius: 5px;
+}
+
+.svgUser {
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.svgArrowUp {
+    margin: 0px 0px 15px 5px;
+    width: 12px;
+    height: 7.42px;
+}
+
+.svgArrowDown {
+    margin: 0px 0px 15px 5px;
+    width: 12px;
+    height: 7.42px;
 }
