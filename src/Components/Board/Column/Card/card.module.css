@@ -1,3 +1,8 @@
+@font-face {
+    src: url('../../../Font/Roboto-Regular.ttf');
+    font-family: 'Roboto';
+}
+
 .card {
     display: flex;
     width: 258px;
@@ -10,6 +15,10 @@
 }
 
 .fillFieldTask {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
     width: 233px;
 }
 

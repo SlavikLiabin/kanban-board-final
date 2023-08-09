@@ -2,7 +2,7 @@ import style from './header.module.css';
 import { UserAvatr } from '../Svg/userAvatar';
 import { ArrowDown } from '../Svg/arrowDown';
 import { ArrowUp } from  '../Svg/arrowUp';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 export const Header = () => {
     const [arrowState, setArrowState] = useState(true);

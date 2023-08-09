@@ -1,3 +1,8 @@
+@font-face {
+    src: url('../../../Components/Font/Roboto-Regular.ttf');
+    font-family: 'Roboto';
+}
+
 .column {
     position: relative;
     top: 25px;
@@ -41,6 +46,10 @@
 } */
 
 .button {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    color: #5E6C84;
     border: none;
     cursor: pointer;
     margin: 10px 0px 5px 5px ;
