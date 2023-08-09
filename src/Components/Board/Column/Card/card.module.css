@@ -1,6 +1,22 @@
 .card {
+    display: flex;
+    width: 258px;
+    min-height: 25px;
+    max-height: 50px;
     margin-bottom: 10px;
     border-radius: 5px;
     background-color: white;
-    box-shadow: 1px -1px 1px rgb(186, 185, 185);
+    box-shadow: 1px 1px 1px rgb(186, 185, 185);
+}
+
+.fill {
+    width: 233px;
+}
+
+.button {
+    display: none;
+}
+
+.card:hover > .button {
+    display: flex;
 }

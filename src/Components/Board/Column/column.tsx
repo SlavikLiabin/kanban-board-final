@@ -16,14 +16,7 @@ export const Column = () => {
                     <Card />
                     <Card />
                     <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card /> 
                 </div>
             </div>
             <div className={style.footer}>
