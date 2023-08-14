@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TchildrenProps, Istates } from '../Types/types';
 
 
-export const TaskContext = createContext<Istates[]>([{id: undefined, name: '', state: ''}]);
+export const TaskContext = createContext<Istates[]>([]);
 export const useGlobalContext = () => useContext(TaskContext);
 
 export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
