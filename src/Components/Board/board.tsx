@@ -7,9 +7,6 @@ export const Board = () => {
     return (
         <div className={style.board}>
             <Column />
-            <Column />
-            <Column />
-            <Column />
         </div>
     )
 }
