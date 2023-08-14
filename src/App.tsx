@@ -5,19 +5,22 @@ import { Header } from './Components/Header/header';
 import { Footer } from './Components/Footer/footer';
 import { Board } from './Components/Board/board';
 import { CardDetail } from './Components/Board/CardDetail/cardDetail';
+import { ContextWrapper } from './Components/Context/taskContext';
 
 
 function App() {
     return (
         <div className={'app'}>
-            <Layout>
-                <Header />
-                    <main>
-                        {/* <CardDetail /> */}
-                        <Board />
-                    </main>
-                <Footer />
-            </Layout>
+            <ContextWrapper>
+                <Layout>
+                    <Header />
+                        <main>
+                            {/* <CardDetail /> */}
+                            <Board />
+                        </main>
+                    <Footer />
+                </Layout>
+            </ContextWrapper>
         </div>
     );
 }
