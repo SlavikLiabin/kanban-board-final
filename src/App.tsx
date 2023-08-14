@@ -4,6 +4,7 @@ import { Layout } from './Components/Layout/layout';
 import { Header } from './Components/Header/header';
 import { Footer } from './Components/Footer/footer';
 import { Board } from './Components/Board/board';
+import { CardDetail } from './Components/Board/CardDetail/cardDetail';
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
             <Layout>
                 <Header />
                     <main>
-                        <Board />
+                        <CardDetail />
+                        {/* <Board /> */}
                     </main>
                 <Footer />
             </Layout>
