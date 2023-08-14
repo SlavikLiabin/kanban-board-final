@@ -1,8 +1,8 @@
-import style from './buttonСross.module.css';
+import style from './buttonCross.module.css';
 import { TchildrenProps } from '../../Types/types';
 
 
-export const ButtonСross = ({ children }: TchildrenProps) => {
+export const ButtonCross = ({ children }: TchildrenProps) => {
 
     return (
         <button className={style.button}>

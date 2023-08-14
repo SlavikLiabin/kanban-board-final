@@ -1,6 +1,6 @@
 import style from './card.module.css';
 import { SvgCross } from '../../../Shared/Svg/svgCross';
-import { ButtonСross } from '../../../Shared/Buttons/buttonСross';
+import { ButtonCross } from '../../../Shared/Buttons/buttonCross';
 
 
 export const Card = () => {
@@ -10,9 +10,9 @@ export const Card = () => {
             <div className={style.card}>
                 <div className={style.fillFieldTask}>card</div>
                 <div className={style.crossButtonDispleyd}>
-                    <ButtonСross>
+                    <ButtonCross>
                         <SvgCross />
-                    </ButtonСross>
+                    </ButtonCross>
                 </div>
             </div>
         </>

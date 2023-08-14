@@ -13,8 +13,8 @@ function App() {
             <Layout>
                 <Header />
                     <main>
-                        <CardDetail />
-                        {/* <Board /> */}
+                        {/* <CardDetail /> */}
+                        <Board />
                     </main>
                 <Footer />
             </Layout>

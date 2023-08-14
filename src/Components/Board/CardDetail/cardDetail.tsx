@@ -1,6 +1,6 @@
 import style from './cardDetail.module.css'
 import { SvgCross } from '../../Shared/Svg/svgCross';
-import { ButtonСross } from '../../Shared/Buttons/buttonСross';
+import { ButtonCross } from '../../Shared/Buttons/buttonCross';
 
 
 export const CardDetail = () => {
@@ -11,11 +11,12 @@ export const CardDetail = () => {
                 <div className={style.wrapperTextArea}>
                     <textarea className={style.name}></textarea>
                     <textarea className={style.description}></textarea>
+                    <button className={style.buttonSave}>Save Card</button>
                 </div>
                 <div className={style.cross}>
-                    <ButtonСross>
+                    <ButtonCross>
                         <SvgCross />
-                    </ButtonСross>
+                    </ButtonCross>
                 </div>
             </div>
         </div>
