@@ -12,7 +12,7 @@ export const Board = () => {
         <div className={style.board}>
             {states.map(
             (state) =>
-                <Column key={state.id} />
+                <Column id={state.id} name={state.name} state={state.state}/>
             )}
         </div>
     )

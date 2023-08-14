@@ -13,6 +13,7 @@
 }
 
 .header {
+    margin: 10px 0px 25px 12px;
     width: 232px;
     height: 17px;
 }
@@ -41,10 +42,6 @@
     background-color: #EBECF0;
 }
 
-/* .footer {
-
-} */
-
 .button {
     font-family: 'Roboto';
     font-weight: 400;
@@ -53,5 +50,10 @@
     border: none;
     cursor: pointer;
     margin: 10px 0px 5px 5px ;
+}
+
+.title {
+    margin: 0px;
+    font-weight: 400;
 }
 
