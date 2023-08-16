@@ -4,7 +4,6 @@ import { TchildrenProps, Istates, ImainDatas } from '../Types/types';
 
 const context: ImainDatas = {
     states: [],
-    
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -23,7 +22,6 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         {id: 4, name: 'finished', state: 'finished'}
     ]);
 
-  
     return <TaskContext.Provider value={{states}}>
                 { children }
             </TaskContext.Provider>
