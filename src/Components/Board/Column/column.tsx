@@ -10,15 +10,15 @@ export const Column = ({ id, name, state }: Istates) => {
 
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
-    console.log(tasks)
+    
     return (
         <div className={style.column}> 
             <div className={style.header}><h2 className={style.title}>{name}</h2></div>
             <div className={style.wrapper + ' ' + style.scroll}>
                 <div className={style.body}>
-                    
-                        {tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} />)}
-                    
+                    {hasTask && 
+                        tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} />)
+                        }
                 </div>
             </div>
             <div className={style.footer}>
