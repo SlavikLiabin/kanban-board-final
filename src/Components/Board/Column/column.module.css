@@ -57,3 +57,14 @@
     font-weight: 400;
 }
 
+.input {
+    width: 258px;
+    min-height: 25px;
+    max-height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid;
+    color: #5E6C84;
+}
+

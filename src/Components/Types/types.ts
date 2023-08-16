@@ -7,12 +7,14 @@ export type TchildrenProps = {
 
 export interface Istates {
     id: number,
-    name: string,
+    name: string | undefined,
     state: string,
 }
 
 export interface ImainDatas {
     states: Istates[],
-    addTask: (name: string) => void,
+    addTask: (name: string | undefined) => void,
     getTasksByState: (state: string) => Istates[],
+    findById: (id: number) => void,
+    /* removeTask: (id: number) => void, */
 }
