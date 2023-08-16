@@ -2,8 +2,12 @@ import { createContext, useContext } from "react";
 import { useState } from "react";
 import { TchildrenProps, Istates, ImainDatas } from '../Types/types';
 
+const context: ImainDatas = {
+    states: [],
+    
+   }
 
-export const TaskContext = createContext<Istates[]>([]);
+export const TaskContext = createContext<ImainDatas>(context);
 export const useGlobalContext = () => useContext(TaskContext);
 
 export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
@@ -19,11 +23,8 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         {id: 4, name: 'finished', state: 'finished'}
     ]);
 
-   const context: ImainDatas = {
-    states
-   }
-
-    return <TaskContext.Provider value={states}>
+  
+    return <TaskContext.Provider value={{states}}>
                 { children }
             </TaskContext.Provider>
 }

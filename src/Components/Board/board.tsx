@@ -6,7 +6,7 @@ import { useGlobalContext } from '../Context/taskContext';
 
 export const Board = () => {
 
-    const states = useGlobalContext();
+    const {states} = useGlobalContext();
    
     return (
         <div className={style.board}>
