@@ -4,6 +4,8 @@ import { TchildrenProps, Istates, ImainDatas } from '../Types/types';
 
 const context: ImainDatas = {
     states: [],
+    addTask: () => {},
+    getTasksByState: () => {return []},
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -22,7 +24,22 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         {id: 4, name: 'finished', state: 'finished'}
     ]);
 
-    return <TaskContext.Provider value={{states}}>
+        const addTask = (name: string): void => {
+            const id = idCounter + 1;
+            const task = {
+                id,
+                name,
+                state: 'backlog'
+            }
+            setIdCounter(id);
+            setTasks([...tasks, task])
+        }
+    
+        const getTasksByState = (state: string): Istates[] => {
+            return tasks.filter(task => task.state === state);
+        }
+    
+    return <TaskContext.Provider value={{states, addTask, getTasksByState}}>
                 { children }
             </TaskContext.Provider>
 }

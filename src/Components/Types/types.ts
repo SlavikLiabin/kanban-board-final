@@ -13,5 +13,6 @@ export interface Istates {
 
 export interface ImainDatas {
     states: Istates[],
-    
+    addTask: (name: string) => void,
+    getTasksByState: (state: string) => Istates[],
 }
