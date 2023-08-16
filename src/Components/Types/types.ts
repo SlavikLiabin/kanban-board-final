@@ -11,4 +11,7 @@ export interface Istates {
     state: string,
 }
 
-
+export interface ImainDatas {
+    states: Istates[],
+    
+}
