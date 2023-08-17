@@ -1,6 +1,5 @@
 import style from './cardDetail.module.css'
 import { SvgCross } from '../../Shared/Svg/svgCross';
-import { ButtonCross } from '../../Shared/Buttons/buttonCross';
 import { useNavigate } from 'react-router-dom';
 
 
