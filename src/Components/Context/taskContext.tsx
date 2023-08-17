@@ -10,6 +10,7 @@ const context: ImainDatas = {
     moveTask: () => {},
     getTasksByExcludedState: () => {return []},
     updateTask: () => {},
+    findById: () => {}
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -20,6 +21,8 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [tasks, setTasks] = useState<Istates[]>([]);
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
+
+    const findById = (id: number) => tasks.find((task) => task.id === id);
 
    /*  useEffect(() => {
         if (isLoaded) {
@@ -85,7 +88,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             setTasks([...tasks]);
         }
         
-    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask}}>
+    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, findById}}>
                 { children }
             </TaskContext.Provider>
 }
