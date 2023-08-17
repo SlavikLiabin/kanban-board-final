@@ -5,9 +5,9 @@ import { TchildrenProps, Istates, ImainDatas } from '../Types/types';
 const context: ImainDatas = {
     states: [],
     addTask: () => {},
-    getTasksByState: () => {return []},
-    findById: () => {},                    
+    getTasksByState: () => {return []},                   
     removeTask: () => {},
+    moveTask: () => {},
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -25,11 +25,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         {id: 3, name: 'in progress', state: 'inProgress'},
         {id: 4, name: 'finished', state: 'finished'}
     ]);
-
-        const findById = (id: number): void => {
-            tasks.find((task) => task.id === id)
-        };
-        
+   
         const addTask = (name: string | undefined): void => {
             const id = idCounter + 1;
             const task = {
@@ -42,17 +38,25 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         };
 
          const removeTask = (id: number): void => {
-            findById(id);
-            
-                setTasks([...tasks.filter(item => item.id !== id)]) 
-            
+                const task = tasks.find((task) => task.id === id);
+                if(task){
+                    setTasks([...tasks.filter(item => item.id !== id)])
+                } 
         }; 
     
         const getTasksByState = (state: string): Istates[] => {
             return tasks.filter(task => task.state === state);
         };
+
+        const moveTask = (id: number | undefined, state: string) => {
+            const task = tasks.find((task) => task.id === id);
+            if (task) {
+                task.state = state;
+            }
+            setTasks([...tasks]);
+        }
         
-    return <TaskContext.Provider value={{states, addTask, getTasksByState, findById, removeTask}}>
+    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask}}>
                 { children }
             </TaskContext.Provider>
 }

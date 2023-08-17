@@ -10,16 +10,17 @@ export const Column = ({ id, name, state }: Istates) => {
     const [isNewTaskInputShown, setIsNewTaskInputShown] = useState<boolean>(false);
     const [inputCardName, setInputCardName] = useState<string | undefined>();
 
-    const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState(false);
-    const [selectedTaskId, setSelectedTaskId] = useState(undefined);
+    const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
+    const [selectedTaskId, setSelectedTaskId] = useState<undefined>(undefined);
 
-    const {addTask, getTasksByState, removeTask} = useGlobalContext();
+    const {addTask, getTasksByState, removeTask, moveTask} = useGlobalContext();
 
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
 
     const onInputCard = (e: ChangeEvent<HTMLInputElement>) => {
         setInputCardName(e.target.value);
+        console.log(e.target.value)
     }
     
     return (
@@ -30,7 +31,7 @@ export const Column = ({ id, name, state }: Istates) => {
                     {hasTask && 
                         tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} />)
                         }
-                    {isNewTaskInputShown && 
+                    {isNewTaskInputShown &&   /* onRemove={(id) => {removeTask(id)}}  */
                     <div>                                                             
                         <input className={style.input} onInput={onInputCard} />
                     </div>
@@ -52,7 +53,7 @@ export const Column = ({ id, name, state }: Istates) => {
                         setInputCardName(undefined);
                     } else {
                         setIsNewTaskSelectShown(false);
-                        //moveTask(selectedTaskId, state);
+                        moveTask(selectedTaskId, state);
                     }
                 }}
                 >Submit</button>
