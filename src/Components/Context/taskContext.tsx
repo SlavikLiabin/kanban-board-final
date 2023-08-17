@@ -9,7 +9,9 @@ const context: ImainDatas = {
     moveTask: () => {},
     getTasksByExcludedState: () => {return []},
     updateTask: () => {},
-    findById: () => {}
+    findById: () => {},
+    getActiveTaskCount: () => {},
+    getFinishedTaskCount: () => {}
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -86,8 +88,14 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             }
             setTasks([...tasks]);
         }
+
+        const getActiveTaskCount = () =>
+            tasks.filter(task => task.state === 'ready' || task.state === 'inProgress').length;
+
+        const getFinishedTaskCount = () =>
+            tasks.filter(task => task.state === 'finished').length;
         
-    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, findById}}>
+    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, findById, getActiveTaskCount, getFinishedTaskCount}}>
                 { isLoaded && children }
             </TaskContext.Provider>
 }
