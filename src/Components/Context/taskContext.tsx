@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react"; 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TchildrenProps, Istates, ImainDatas } from '../Types/types';
 
 const context: ImainDatas = {
@@ -18,6 +18,20 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [tasks, setTasks] = useState<Istates[]>([]);
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
+
+   /*  useEffect(() => {
+        if (isLoaded) {
+            localStorage.setItem('tasks', JSON.stringify(tasks))
+        }
+    }, [tasks, isLoaded])
+
+    useEffect(() => {
+        const tasks = localStorage.getItem('tasks');
+        if (tasks) {
+            setTasks(JSON.parse(tasks))
+        }
+        setIsLoaded(true);
+    }, []) */
 
     const [states] = useState<Istates[]>([
         {id: 1, name: 'backlog', state: 'backlog'},
