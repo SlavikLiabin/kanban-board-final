@@ -9,9 +9,9 @@ const context: ImainDatas = {
     moveTask: () => {},
     getTasksByExcludedState: () => {return []},
     updateTask: () => {},
-    findById: () => {},
     getActiveTaskCount: () => {},
-    getFinishedTaskCount: () => {}
+    getFinishedTaskCount: () => {},
+    findById: () => {},
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
