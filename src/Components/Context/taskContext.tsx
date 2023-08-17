@@ -55,8 +55,10 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         
         const updateTask = (item: Istates) => {
             const task = tasks.find((task) => task.id === item.id);
-            task.name = item.name;
-            task.description = item.description;
+            if(task !== undefined){
+                task.name = item.name;
+                task.description = item.description;
+            }
             setTasks([...tasks])
         }
 
