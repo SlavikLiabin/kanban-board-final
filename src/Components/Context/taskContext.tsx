@@ -96,6 +96,6 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             tasks.filter(task => task.state === 'finished').length;
         
     return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, findById, getActiveTaskCount, getFinishedTaskCount}}>
-                { isLoaded && children }
+                { /* isLoaded && */ children }
             </TaskContext.Provider>
 }
