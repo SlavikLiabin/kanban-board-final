@@ -22,7 +22,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [idCounter, setIdCounter] = useState<number>(0);
 
     const findById = (id: number) => tasks.find((task) => task.id === id);
-
+    
    /*  useEffect(() => {
         if (isLoaded) {
             localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -88,6 +88,6 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         }
         
     return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, findById}}>
-                { children }
+                { isLoaded && children }
             </TaskContext.Provider>
 }
