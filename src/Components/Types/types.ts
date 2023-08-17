@@ -9,6 +9,7 @@ export interface Istates {
     id: number,
     name?: string,
     state: string,
+    description?: string,
 }
 
 export interface ImainDatas {
@@ -17,4 +18,6 @@ export interface ImainDatas {
     getTasksByState: (state: string) => Istates[],                    
     removeTask: (id: number) => void,
     moveTask: (id: number | undefined, state: string) => void,
+    getTasksByExcludedState: (state: string) => Istates[],
+    updateTask: (item: Istates) => void,
 }
