@@ -6,7 +6,7 @@ import { useState } from 'react';
 import React, { ChangeEvent } from 'react';
 
 
-export const Column = ({ id, name, state }: Istates) => {
+export const Column = ({ name, state }: Istates) => {
     const [isNewTaskInputShown, setIsNewTaskInputShown] = useState<boolean>(false);
     const [inputCardName, setInputCardName] = useState<string | undefined>();
 

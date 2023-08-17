@@ -1,12 +1,11 @@
 import React, { MouseEvent } from 'react'; 
 import style from './card.module.css';
 import { SvgCross } from '../../../Shared/Svg/svgCross';
-//import { ButtonCross } from '../../../Shared/Buttons/buttonCross';
 import { Istates } from '../../../Types/types';
 import { useGlobalContext } from '../../../Context/taskContext';
 
 
-export const Card = ({ id, name, state }: Istates) => {
+export const Card = ({ id }: Istates) => {
 
     const {removeTask} = useGlobalContext();
 
