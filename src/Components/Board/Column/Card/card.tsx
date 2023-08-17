@@ -14,7 +14,7 @@ export const Card = ({ id }: Istates) => {
             <div className={style.card}>
                 <div className={style.fillFieldTask}></div>
                 <div className={style.crossButtonDispleyd}>
-                    <button className={style.button} onClick={(e: MouseEvent<HTMLButtonElement>) => {removeTask(id)}}>
+                    <button className={style.button} onClick={(e: MouseEvent<HTMLButtonElement>) => {removeTask(id); e.stopPropagation()}}>
                         <SvgCross />
                     </button>
                 </div>

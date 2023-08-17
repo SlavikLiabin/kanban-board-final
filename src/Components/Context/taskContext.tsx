@@ -25,7 +25,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
 
     const findById = (id: number) => tasks.find((task) => task.id === id);
     
-   /*  useEffect(() => {
+    useEffect(() => {
         if (isLoaded) {
             localStorage.setItem('tasks', JSON.stringify(tasks))
         }
@@ -37,7 +37,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             setTasks(JSON.parse(tasks))
         }
         setIsLoaded(true);
-    }, []) */
+    }, [])
 
     const [states] = useState<Istates[]>([
         {id: 1, name: 'backlog', state: 'backlog'},
@@ -53,6 +53,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
                 name,
                 state: 'backlog'
             }
+            console.log(task)
             setIdCounter(id);
             setTasks([...tasks, task])
         };

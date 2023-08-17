@@ -8,7 +8,7 @@ import React, { ChangeEvent } from 'react';
 
 export const Column = ({ name, state }: Istates) => {
     const [isNewTaskInputShown, setIsNewTaskInputShown] = useState<boolean>(false);
-    const [inputCardName, setInputCardName] = useState<string | undefined>();
+    const [inputCardName, setInputCardName] = useState<string>();
 
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
     const [selectedTaskId, setSelectedTaskId] = useState<undefined>(undefined);
@@ -20,7 +20,6 @@ export const Column = ({ name, state }: Istates) => {
 
     const onInputCard = (e: ChangeEvent<HTMLInputElement>) => {
         setInputCardName(e.target.value);
-        console.log(e.target.value)
     }
     
     return (
