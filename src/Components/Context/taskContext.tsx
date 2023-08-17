@@ -6,8 +6,8 @@ const context: ImainDatas = {
     states: [],
     addTask: () => {},
     getTasksByState: () => {return []},
-    findById: () => {},
-    /* removeTask: () => {}, */
+    findById: () => {},                    
+    removeTask: () => {},
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -29,7 +29,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         const findById = (id: number): void => {
             tasks.find((task) => task.id === id)
         };
-
+        
         const addTask = (name: string | undefined): void => {
             const id = idCounter + 1;
             const task = {
@@ -41,18 +41,18 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             setTasks([...tasks, task])
         };
 
-        /* const removeTask = (id: number): void => {
+         const removeTask = (id: number): void => {
             const task = findById(id);
             if (task) {
-                setTasks([...tasks.filter(item => item.id !== task.id)])
+                setTasks([...tasks.filter(item => item.id !== task.id)]) 
             }
-        }; */
+        }; 
     
         const getTasksByState = (state: string): Istates[] => {
             return tasks.filter(task => task.state === state);
         };
-    
-    return <TaskContext.Provider value={{states, addTask, getTasksByState, findById/* , removeTask */}}>
+        
+    return <TaskContext.Provider value={{states, addTask, getTasksByState, findById, removeTask}}>
                 { children }
             </TaskContext.Provider>
 }

@@ -10,7 +10,7 @@ export const Column = ({ id, name, state }: Istates) => {
     const [isNewTaskInputShown, setIsNewTaskInputShown] = useState<boolean>(false);
     const [inputCardName, setInputCardName] = useState<string | undefined>();
 
-    const {addTask, getTasksByState} = useGlobalContext();
+    const {addTask, getTasksByState, removeTask} = useGlobalContext();
 
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
@@ -25,10 +25,10 @@ export const Column = ({ id, name, state }: Istates) => {
             <div className={style.wrapper + ' ' + style.scroll}>
                 <div className={style.body}>
                     {hasTask && 
-                        tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} />)
+                        tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} onRemove={(id) => removeTask(id)} />)
                         }
                     {isNewTaskInputShown &&
-                    <div>
+                    <div>                                                             
                         <input className={style.input} onInput={onInputCard} />
                     </div>
                     }
