@@ -39,7 +39,14 @@
 
 .cross {
     margin: 5px 0px 0px 70px;
+    padding: 0px;
+    height: 25px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
+
 
 .buttonSave {
     margin: 10px 0px 0px 25px;
