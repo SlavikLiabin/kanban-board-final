@@ -42,10 +42,10 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         };
 
          const removeTask = (id: number): void => {
-            const task = findById(id);
-            if (task) {
-                setTasks([...tasks.filter(item => item.id !== task.id)]) 
-            }
+            findById(id);
+            
+                setTasks([...tasks.filter(item => item.id !== id)]) 
+            
         }; 
     
         const getTasksByState = (state: string): Istates[] => {

@@ -7,7 +7,7 @@ export type TchildrenProps = {
 
 export interface Istates {
     id: number,
-    name: string | undefined,
+    name?: string,
     state: string,
 }
 

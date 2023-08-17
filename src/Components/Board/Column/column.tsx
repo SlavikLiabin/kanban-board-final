@@ -10,6 +10,9 @@ export const Column = ({ id, name, state }: Istates) => {
     const [isNewTaskInputShown, setIsNewTaskInputShown] = useState<boolean>(false);
     const [inputCardName, setInputCardName] = useState<string | undefined>();
 
+    const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState(false);
+    const [selectedTaskId, setSelectedTaskId] = useState(undefined);
+
     const {addTask, getTasksByState, removeTask} = useGlobalContext();
 
     const tasks = getTasksByState(state);
@@ -25,9 +28,9 @@ export const Column = ({ id, name, state }: Istates) => {
             <div className={style.wrapper + ' ' + style.scroll}>
                 <div className={style.body}>
                     {hasTask && 
-                        tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} onRemove={(id) => removeTask(id)} />)
+                        tasks.map((task) => <Card key={task.id} id={task.id} name={task.name} state={task.state} />)
                         }
-                    {isNewTaskInputShown &&
+                    {isNewTaskInputShown && 
                     <div>                                                             
                         <input className={style.input} onInput={onInputCard} />
                     </div>
@@ -35,9 +38,25 @@ export const Column = ({ id, name, state }: Istates) => {
                 </div>
             </div>
             <div className={style.footer}>
-                <button className={style.button} onClick={() => 
-                    state === 'backlog' && setIsNewTaskInputShown(true)
-                }>+ Add card</button> 
+                {(!isNewTaskInputShown && !isNewTaskSelectShown) &&
+                    <button className={style.buttonAdd} onClick={() => 
+                        state === 'backlog' 
+                        ? setIsNewTaskInputShown(true)
+                        : setIsNewTaskSelectShown(true)}>+ Add card
+                    </button>} 
+                {(isNewTaskInputShown || isNewTaskSelectShown) &&
+                <button className={style.buttonSub} onClick={() => {
+                    if (state === 'backlog') {
+                        setIsNewTaskInputShown(false)
+                        addTask(inputCardName);
+                        setInputCardName(undefined);
+                    } else {
+                        setIsNewTaskSelectShown(false);
+                        //moveTask(selectedTaskId, state);
+                    }
+                }}
+                >Submit</button>
+                }
             </div>
         </div>
     )

@@ -42,14 +42,37 @@
     background-color: #EBECF0;
 }
 
-.button {
+.buttonAdd {
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 18px;
+    padding: 2px;
     color: #5E6C84;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    margin: 10px 0px 5px 5px ;
+    margin: 10px 0px 5px 10px ;
+}
+
+.buttonAdd:hover {
+    background-color: white;
+}
+
+.buttonSub {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    padding: 2px;
+    color: #5E6C84;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px 5px 10px ;
+}
+
+.buttonSub:hover {
+    background-color: #0079BF;
+    color: white;
 }
 
 .title {

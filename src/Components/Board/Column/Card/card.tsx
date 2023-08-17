@@ -4,7 +4,7 @@ import { ButtonCross } from '../../../Shared/Buttons/buttonCross';
 import { Istates } from '../../../Types/types';
 
 
-export const Card = ({ id, name }: Istates) => {
+export const Card = ({ id, name, state }: Istates) => {
 
     return (
         <>
