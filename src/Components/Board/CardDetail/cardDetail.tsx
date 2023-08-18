@@ -12,7 +12,7 @@ export const CardDetail = () => {
     const {getTaskById, updateTask} = useGlobalContext();
     const {cardId} = useParams();
     const [task, setTask] = useState<any>();
-   
+    //console.log(cardId)
     useEffect(() => {
         if (cardId) {
             setTask(getTaskById(cardId))

@@ -53,7 +53,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
                 name,
                 state: 'backlog'
             }
-            console.log(task)
+            
             setIdCounter(id);
             setTasks([...tasks, task])
         };
