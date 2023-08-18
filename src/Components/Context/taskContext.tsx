@@ -11,7 +11,7 @@ const context: ImainDatas = {
     updateTask: () => {},
     getActiveTaskCount: () => {},
     getFinishedTaskCount: () => {},
-    findById: () => {},
+    getTaskById: () => {},
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -23,7 +23,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
 
-    const findById = (id: number) => tasks.find((task) => task.id === id);
+    const getTaskById = (id: number | string) => tasks.find((task) => task.id === id);
     
     useEffect(() => {
         if (isLoaded) {
@@ -96,7 +96,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         const getFinishedTaskCount = () =>
             tasks.filter(task => task.state === 'finished').length;
         
-    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, findById, getActiveTaskCount, getFinishedTaskCount}}>
+    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, getTaskById, getActiveTaskCount, getFinishedTaskCount}}>
                 { /* isLoaded && */ children }
             </TaskContext.Provider>
 }

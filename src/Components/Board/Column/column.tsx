@@ -13,7 +13,7 @@ export const Column = ({ name, state }: Istates) => {
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
     const [selectedTaskId, setSelectedTaskId] = useState<undefined>(undefined);
 
-    const {addTask, getTasksByState,  moveTask, findById} = useGlobalContext();
+    const {addTask, getTasksByState,  moveTask, getTaskById} = useGlobalContext();
    
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;

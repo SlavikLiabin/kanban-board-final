@@ -22,5 +22,5 @@ export interface ImainDatas {
     updateTask: (item: Istates) => void,
     getActiveTaskCount: () => void,
     getFinishedTaskCount: () => void,
-    findById: (id: number) => void,
+    getTaskById: (id: number | string) => void,
 }

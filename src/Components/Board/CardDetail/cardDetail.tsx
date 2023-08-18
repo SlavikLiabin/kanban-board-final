@@ -1,11 +1,25 @@
 import style from './cardDetail.module.css'
 import { SvgCross } from '../../Shared/Svg/svgCross';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useGlobalContext } from '../../Context/taskContext';
+import { Istates } from '../../Types/types';
 
 
 export const CardDetail = () => {
     const navigate = useNavigate();
     const navigateBack = () => navigate(-1);
+
+    const {getTaskById, updateTask} = useGlobalContext();
+    const {cardId} = useParams();
+    const [task, setTask] = useState();
+   
+    useEffect(() => {
+        if (cardId) {
+            //setTask(getTaskById(cardId))
+        }
+    }, [cardId])
+
     return (
         <div className={style.containerDetail}>
             <div className={style.windowDetail}>
