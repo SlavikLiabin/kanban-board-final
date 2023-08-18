@@ -3,7 +3,6 @@ import { SvgCross } from '../../Shared/Svg/svgCross';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useGlobalContext } from '../../Context/taskContext';
-import { Istates } from '../../Types/types';
 
 
 export const CardDetail = () => {
@@ -12,11 +11,11 @@ export const CardDetail = () => {
 
     const {getTaskById, updateTask} = useGlobalContext();
     const {cardId} = useParams();
-    const [task, setTask] = useState();
+    const [task, setTask] = useState<any>();
    
     useEffect(() => {
         if (cardId) {
-            //setTask(getTaskById(cardId))
+            setTask(getTaskById(cardId))
         }
     }, [cardId])
 
