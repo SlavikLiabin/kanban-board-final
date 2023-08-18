@@ -13,7 +13,7 @@ export const Column = ({ name, state }: Istates) => {
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
     const [selectedTaskId, setSelectedTaskId] = useState<undefined>(undefined);
 
-    const {addTask, getTasksByState,  moveTask, getTaskById} = useGlobalContext();
+    const {addTask, getTasksByState,  moveTask, getTaskById, getTasksByExcludedState} = useGlobalContext();
    
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
@@ -34,6 +34,16 @@ export const Column = ({ name, state }: Istates) => {
                     <div>                                                             
                         <input className={style.input} onInput={onInputCard} />
                     </div>
+                    }
+                    {isNewTaskSelectShown &&
+                    <select onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                        setSelectedTaskId(e.target.value)}
+                    >
+                        <option>Select Task</option>
+                        {getTasksByExcludedState(state).map((task) =>
+                            <option key={task.id} value={task.id}>{task.name}</option>
+                        )}
+                    </select>
                     }
                 </div>
             </div>
