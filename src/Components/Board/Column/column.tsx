@@ -36,7 +36,7 @@ export const Column = ({ name, state }: Istates) => {
                     </div>
                     }
                     {isNewTaskSelectShown &&
-                    <select onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                    <select className={style.selector} onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                         setSelectedTaskId(e.target.value)}
                     >
                         <option>Select Task</option>
@@ -67,6 +67,12 @@ export const Column = ({ name, state }: Istates) => {
                 }}
                 >Submit</button>
                 }
+                {(isNewTaskInputShown || isNewTaskSelectShown)
+                    && <button className={style.buttonCancel} onClick={() =>
+                        state === 'backlog'
+                            ? setIsNewTaskInputShown(false)
+                            : setIsNewTaskSelectShown(false)
+                    }>Cancel</button>}
             </div>
         </div>
     )
