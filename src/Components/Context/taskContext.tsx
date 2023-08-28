@@ -23,7 +23,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
 
-    const getTaskById = (id: number | string) => tasks.find((task) => task.id === id);
+    const getTaskById = (id: number) => tasks.find((task) => task.id === Number(id));
     
     useEffect(() => {
         if (isLoaded) {

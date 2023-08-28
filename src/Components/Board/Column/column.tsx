@@ -62,7 +62,7 @@ export const Column = ({ name, state }: Istates) => {
                         setInputCardName(undefined);
                     } else {
                         setIsNewTaskSelectShown(false);
-                        moveTask(selectedTaskId, state);
+                        moveTask(Number(selectedTaskId), state);
                     }
                 }}
                 >Submit</button>
