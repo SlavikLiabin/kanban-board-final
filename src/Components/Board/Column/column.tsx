@@ -11,7 +11,7 @@ export const Column = ({ name, state }: Istates) => {
     const [inputCardName, setInputCardName] = useState<string>();
 
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
-    const [selectedTaskId, setSelectedTaskId] = useState<undefined>(undefined);
+    const [selectedTaskId, setSelectedTaskId] = useState<string>();
 
     const {addTask, getTasksByState,  moveTask, getTaskById, getTasksByExcludedState} = useGlobalContext();
    
