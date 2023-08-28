@@ -5,15 +5,23 @@ import { ArrowUp } from  '../Shared/Svg/arrowUp';
 import { useState } from 'react';
 
 export const Header = () => {
-    const [arrowState, setArrowState] = useState(true);
+    const [isMenuShown, setIsMenuShown] = useState(true);
     
     return (
         <header className={style.header}>
             <div className={style.positionLogoUserBar}>
                 <h1 className={style.sizeLogo}>Awesome Kanban Board</h1>
-                <div className={style.userIcon}>
+                <div className={style.userIcon} onClick={() => setIsMenuShown(!isMenuShown)}>
                     <UserAvatr />
-                    {arrowState ? <ArrowDown /> : <ArrowUp />}
+                        {!isMenuShown ? 
+                        <ArrowUp /> : <ArrowDown />
+                        }
+
+                        {!isMenuShown && <div className={style.menu}>
+                            <div className={style.item_1}>Profile</div>
+                            <div className={style.item_2}>Log Out</div>
+                        </div>
+                        }
                 </div>
             </div>
         </header>

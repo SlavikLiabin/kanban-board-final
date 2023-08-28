@@ -13,7 +13,7 @@ export const Column = ({ name, state }: Istates) => {
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
     const [selectedTaskId, setSelectedTaskId] = useState<string>();
 
-    const {addTask, getTasksByState,  moveTask, getTaskById, getTasksByExcludedState} = useGlobalContext();
+    const {addTask, getTasksByState,  moveTask, getTasksByExcludedState} = useGlobalContext();
    
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
@@ -36,7 +36,7 @@ export const Column = ({ name, state }: Istates) => {
                     </div>
                     }
                     {isNewTaskSelectShown &&
-                    <select className={style.selector} onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                    <select className={style.select} onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                         setSelectedTaskId(e.target.value)}
                     >
                         <option>Select task to add in "{name}"</option>

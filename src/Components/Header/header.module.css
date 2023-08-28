@@ -22,3 +22,27 @@
     font-size: 28px;
     color: #FFFFFF
 }
+
+.userIcon {
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    right: 15px;
+    width: 134px;
+    height: 60px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1;
+}
+
+.item_1:hover {
+    text-decoration: underline;
+}
+
+.item_2:hover {
+    text-decoration: underline;
+}
+

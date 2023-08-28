@@ -73,7 +73,7 @@
 
 .buttonCancel:hover {
     background-color: rgb(226, 221, 221);
-    color:  #5E6C84;;
+    color:  #5E6C84;
 }
 
 .buttonSub:hover {
@@ -98,7 +98,7 @@
     color: black;
 }
 
-.selector {
+.select {
     width: 258px;
     min-height: 25px;
     max-height: 50px;
@@ -107,7 +107,7 @@
     border: none;
     border-bottom: 3px solid #5E6C84;
     font-size: 15px;
-    color: black;
-    
+    color: #5E6C84;
 }
+
 
