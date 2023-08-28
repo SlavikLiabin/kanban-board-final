@@ -5,7 +5,7 @@ export type TchildrenProps = {
     children: ReactNode;
 }
 
-export interface Istates {
+export interface Istates{
     id: number,
     name?: string,
     state: string,
@@ -19,8 +19,8 @@ export interface ImainDatas {
     removeTask: (id: number) => void,
     moveTask: (id: number, state: string) => void,
     getTasksByExcludedState: (state: string) => Istates[],
-    updateTask: (item: Istates) => void,
+    updateTask: (item: Istates | undefined) => void,
     getActiveTaskCount: () => void,
     getFinishedTaskCount: () => void,
-    getTaskById: (id: number) => void,
+    getTaskById: (id: number) => Istates | undefined,
 }

@@ -11,7 +11,7 @@ const context: ImainDatas = {
     updateTask: () => {},
     getActiveTaskCount: () => {},
     getFinishedTaskCount: () => {},
-    getTaskById: () => {},
+    getTaskById: () => {return undefined},
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -23,7 +23,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
 
-    const getTaskById = (id: number) => tasks.find((task) => task.id === Number(id));
+    const getTaskById = (id: number) => {return tasks.find((task) => task.id === id);}
     
     useEffect(() => {
         if (isLoaded) {
@@ -53,16 +53,15 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
                 name,
                 state: 'backlog'
             }
-            
             setIdCounter(id);
             setTasks([...tasks, task])
         };
         
-        const updateTask = (item: Istates) => {
-            const task = tasks.find((task) => task.id === item.id);
+        const updateTask = (item: Istates | undefined) => {
+            const task = tasks.find((task) => task.id === item!.id);
             if(task !== undefined){
-                task.name = item.name;
-                task.description = item.description;
+                task.name = item!.name;
+                task.description = item!.description;
             }
             setTasks([...tasks])
         }

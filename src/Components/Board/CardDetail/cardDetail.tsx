@@ -12,8 +12,8 @@ export const CardDetail = () => {
 
     const {getTaskById, updateTask} = useGlobalContext();
     const {cardId} = useParams();
-    const [task, setTask] = useState<any>();
-    //console.log(cardId)
+    const [task, setTask] = useState<Istates>();
+    
     useEffect(() => {
         if (cardId) {
             setTask(getTaskById(Number(cardId)))
@@ -24,9 +24,26 @@ export const CardDetail = () => {
         <div className={style.containerDetail}>
             <div className={style.windowDetail}>
                 <div className={style.wrapperTextArea}>
-                    <textarea className={style.name}></textarea>
-                    <textarea className={style.description}></textarea>
-                    <button className={style.buttonSave}>Save Card</button>
+                    {task && 
+                        <>
+                            <textarea className={style.name} value={task.name} onChange={(e) =>
+                                setTask({
+                                    ...task,
+                                    name: e.target.value
+                        })}
+                            ></textarea>
+                    
+                            <textarea className={style.description} value={task.description} onChange={(e) =>
+                                setTask({
+                                    ...task,
+                                    description: e.target.value
+                        })}
+                            ></textarea>
+                        </>}
+                    <button className={style.buttonSave} onClick={() => {
+                    updateTask(task);
+                    navigateBack();
+                }}>Save Card</button>
                 </div>
                 <div>
                     <button className={style.cross} onClick={navigateBack}>
