@@ -73,7 +73,7 @@
 
 .buttonCancel:hover {
     background-color: rgb(226, 221, 221);
-    color: white;
+    color:  #5E6C84;;
 }
 
 .buttonSub:hover {
@@ -105,7 +105,7 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    border-bottom: 3px solid #5E6C84;;
+    border-bottom: 3px solid #5E6C84;
     font-size: 15px;
     color: black;
     

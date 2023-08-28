@@ -40,10 +40,10 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     }, [])
 
     const [states] = useState<Istates[]>([
-        {id: 1, name: 'backlog', state: 'backlog'},
-        {id: 2, name: 'ready', state: 'ready'},
-        {id: 3, name: 'in progress', state: 'inProgress'},
-        {id: 4, name: 'finished', state: 'finished'}
+        {id: 1, name: 'Backlog', state: 'backlog'},
+        {id: 2, name: 'Ready', state: 'ready'},
+        {id: 3, name: 'In progress', state: 'inProgress'},
+        {id: 4, name: 'Finished', state: 'finished'}
     ]);
    
         const addTask = (name: string | undefined): void => {

@@ -39,7 +39,7 @@ export const Column = ({ name, state }: Istates) => {
                     <select className={style.selector} onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                         setSelectedTaskId(e.target.value)}
                     >
-                        <option>Select Task</option>
+                        <option>Select task to add in "{name}"</option>
                         {getTasksByExcludedState(state).map((task) =>
                             <option key={task.id} value={task.id}>{task.name}</option>
                         )}
@@ -48,7 +48,7 @@ export const Column = ({ name, state }: Istates) => {
                 </div>
             </div>
             <div className={style.footer}>
-                {(!isNewTaskInputShown && !isNewTaskSelectShown) &&
+                {(!isNewTaskInputShown && !isNewTaskSelectShown) && 
                     <button className={style.buttonAdd} onClick={() => 
                         state === 'backlog' 
                         ? setIsNewTaskInputShown(true)
@@ -56,23 +56,24 @@ export const Column = ({ name, state }: Istates) => {
                     </button>} 
                 {(isNewTaskInputShown || isNewTaskSelectShown) &&
                 <button className={style.buttonSub} onClick={() => {
-                    if (state === 'backlog') {
+                    if (state === 'backlog' && inputCardName) {
                         setIsNewTaskInputShown(false)
                         addTask(inputCardName);
                         setInputCardName(undefined);
                     } else {
+                        setIsNewTaskInputShown(false)
                         setIsNewTaskSelectShown(false);
                         moveTask(Number(selectedTaskId), state);
                     }
                 }}
                 >Submit</button>
                 }
-                {(isNewTaskInputShown || isNewTaskSelectShown)
+                {/* {(isNewTaskInputShown || isNewTaskSelectShown)
                     && <button className={style.buttonCancel} onClick={() =>
                         state === 'backlog'
                             ? setIsNewTaskInputShown(false)
                             : setIsNewTaskSelectShown(false)
-                    }>Cancel</button>}
+                    }>Cancel</button>} */}
             </div>
         </div>
     )
