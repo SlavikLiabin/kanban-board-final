@@ -9,8 +9,8 @@ const context: ImainDatas = {
     moveTask: () => {},
     getTasksByExcludedState: () => {return []},
     updateTask: () => {},
-    getActiveTaskCount: () => {},
-    getFinishedTaskCount: () => {},
+    getActiveTaskCount: () => {return 0},
+    getFinishedTaskCount: () => {return 0},
     getTaskById: () => {return undefined},
    }
 
@@ -90,10 +90,10 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         }
 
         const getActiveTaskCount = () =>
-            tasks.filter(task => task.state === 'ready' || task.state === 'inProgress').length;
+            {return tasks.filter(task => task.state === 'backlog' || task.state === 'ready' || task.state === 'inProgress').length;}
 
         const getFinishedTaskCount = () =>
-            tasks.filter(task => task.state === 'finished').length;
+            {return tasks.filter(task => task.state === 'finished').length;}
         
     return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, getTaskById, getActiveTaskCount, getFinishedTaskCount}}>
                 { /* isLoaded && */ children }

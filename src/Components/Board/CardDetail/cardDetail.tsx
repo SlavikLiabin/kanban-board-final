@@ -33,7 +33,7 @@ export const CardDetail = () => {
                         })}
                             ></textarea>
                     
-                            <textarea className={style.description} value={task.description} onChange={(e) =>
+                            <textarea placeholder='This task has no description' className={style.description} value={task.description} onChange={(e) =>
                                 setTask({
                                     ...task,
                                     description: e.target.value
