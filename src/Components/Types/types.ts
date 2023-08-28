@@ -17,7 +17,7 @@ export interface ImainDatas {
     addTask: (name: string | undefined) => void,
     getTasksByState: (state: string) => Istates[],                    
     removeTask: (id: number) => void,
-    moveTask: (id: number | undefined, state: string) => void,
+    moveTask: (id: number, state: string) => void,
     getTasksByExcludedState: (state: string) => Istates[],
     updateTask: (item: Istates) => void,
     getActiveTaskCount: () => void,

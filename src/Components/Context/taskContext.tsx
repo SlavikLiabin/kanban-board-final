@@ -82,7 +82,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             return tasks.filter(task => task.state !== state);
         }
 
-        const moveTask = (id: number | undefined, state: string) => {
+        const moveTask = (id: number, state: string) => {
             const task = tasks.find((task) => task.id === id);
             if (task) {
                 task.state = state;
