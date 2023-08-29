@@ -12,7 +12,7 @@ const context: ImainDatas = {
     getActiveTaskCount: () => {return 0},
     getFinishedTaskCount: () => {return 0},
     getTaskById: () => {return undefined},
-    toggleDisable: () => {return false}
+    toggleDisabled: () => {return false}
    }
 
 export const TaskContext = createContext<ImainDatas>(context);
@@ -90,7 +90,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             setTasks([...tasks]);                                 //обновили массив задач
         }
     
-        const toggleDisable = (state: string): boolean | undefined => {
+        const toggleDisabled = (state: string): boolean | undefined => {
             if(tasks.length === 0 && state !== 'backlog') {
                 return true
             }else{
@@ -104,7 +104,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         const getFinishedTaskCount = () =>
             {return tasks.filter(task => task.state === 'finished').length;}
         
-    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, getTaskById, getActiveTaskCount, getFinishedTaskCount, toggleDisable}}>
+    return <TaskContext.Provider value={{states, addTask, getTasksByState, removeTask, moveTask, getTasksByExcludedState, updateTask, getTaskById, getActiveTaskCount, getFinishedTaskCount, toggleDisabled}}>
                 { /* isLoaded && */ children }
             </TaskContext.Provider>
 }

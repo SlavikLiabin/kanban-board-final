@@ -23,5 +23,5 @@ export interface ImainDatas {
     getActiveTaskCount: () => number,
     getFinishedTaskCount: () => number,
     getTaskById: (id: number) => Istates | undefined,
-    toggleDisable: (state: string) => boolean | undefined
+    toggleDisabled: (state: string) => boolean | undefined
 }

@@ -13,7 +13,7 @@ export const Column = ({ name, state }: Istates) => {
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
     const [selectedTaskId, setSelectedTaskId] = useState<string>();
    
-    const {addTask, getTasksByState,  moveTask, getTasksByExcludedState, toggleDisable} = useGlobalContext();
+    const {addTask, getTasksByState,  moveTask, getTasksByExcludedState, toggleDisabled} = useGlobalContext();
     
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
@@ -51,7 +51,7 @@ export const Column = ({ name, state }: Istates) => {
             </div>
             <div className={style.footer}>
                 {(!isNewTaskInputShown && !isNewTaskSelectShown) && 
-                    <button className={style.buttonAdd} disabled={toggleDisable(state)} onClick={() => 
+                    <button className={style.buttonAdd} disabled={toggleDisabled(state)} onClick={() => 
                         {if(state === 'backlog'){
                             setIsNewTaskInputShown(true)
                         }else{
