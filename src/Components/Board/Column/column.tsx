@@ -2,7 +2,7 @@ import style from './column.module.css';
 import { Card } from './Card/card';
 import { Istates } from '../../Types/types';
 import { useGlobalContext } from '../../Context/taskContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React, { ChangeEvent } from 'react';
 
 
@@ -12,8 +12,8 @@ export const Column = ({ name, state }: Istates) => {
 
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState<boolean>(false);
     const [selectedTaskId, setSelectedTaskId] = useState<string>();
-
-    const {addTask, getTasksByState,  moveTask, getTasksByExcludedState} = useGlobalContext();
+   
+    const {addTask, getTasksByState,  moveTask, getTasksByExcludedState, toggleDisable} = useGlobalContext();
     
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
@@ -21,6 +21,8 @@ export const Column = ({ name, state }: Istates) => {
     const onInputCard = (e: ChangeEvent<HTMLInputElement>) => {
         setInputCardName(e.target.value);
     }
+
+     //!tasks.length && state !== 'backlog' ? butDisable : !butDisable
     
     return (
         <div className={style.column}> 
@@ -49,31 +51,33 @@ export const Column = ({ name, state }: Istates) => {
             </div>
             <div className={style.footer}>
                 {(!isNewTaskInputShown && !isNewTaskSelectShown) && 
-                    <button className={style.buttonAdd} onClick={() => 
-                        state === 'backlog' 
-                        ? setIsNewTaskInputShown(true)
-                        : setIsNewTaskSelectShown(true)}>+ Add card
-                    </button>} 
+                    <button className={style.buttonAdd} disabled={toggleDisable(state)} onClick={() => 
+                        {if(state === 'backlog'){
+                            setIsNewTaskInputShown(true)
+                        }else{
+                            setIsNewTaskSelectShown(true)
+                        }
+                    }}>+ Add card</button>}  
+                      
                 {(isNewTaskInputShown || isNewTaskSelectShown) &&
                 <button className={style.buttonSub} onClick={() => {
                     if (state === 'backlog' && inputCardName) {
-                        setIsNewTaskInputShown(false)
+                        setIsNewTaskInputShown(false);
                         addTask(inputCardName);                  //передаем аргумент название задачи
                         setInputCardName(undefined);
                     } else {
-                        setIsNewTaskInputShown(false)
+                        setIsNewTaskInputShown(false);
                         setIsNewTaskSelectShown(false);
                         moveTask(Number(selectedTaskId), state);   //передаем аргумент значение селекта как id и state
                     }
-                }}
-                >Submit</button>
-                }
-                {/* {(isNewTaskInputShown || isNewTaskSelectShown)
-                    && <button className={style.buttonCancel} onClick={() =>
+                    }}>Submit</button>}
+
+                {(isNewTaskInputShown || isNewTaskSelectShown) && 
+                <button className={style.buttonCancel} onClick={() =>
                         state === 'backlog'
                             ? setIsNewTaskInputShown(false)
                             : setIsNewTaskSelectShown(false)
-                    }>Cancel</button>} */}
+                    }>Cancel</button>}
             </div>
         </div>
     )
