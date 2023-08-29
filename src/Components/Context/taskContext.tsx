@@ -23,8 +23,13 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
 
-    const getTaskById = (id: number) => {return tasks.find((task) => task.id === id);}
-    
+    const [states] = useState<Istates[]>([
+        {id: 1, name: 'Backlog', state: 'backlog'},
+        {id: 2, name: 'Ready', state: 'ready'},
+        {id: 3, name: 'In progress', state: 'inProgress'},
+        {id: 4, name: 'Finished', state: 'finished'}
+    ]);
+
     useEffect(() => {
         if (isLoaded) {
             localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -39,22 +44,17 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         setIsLoaded(true);
     }, [])
 
-    const [states] = useState<Istates[]>([
-        {id: 1, name: 'Backlog', state: 'backlog'},
-        {id: 2, name: 'Ready', state: 'ready'},
-        {id: 3, name: 'In progress', state: 'inProgress'},
-        {id: 4, name: 'Finished', state: 'finished'}
-    ]);
-   
-        const addTask = (name: string | undefined): void => {
-            const id = idCounter + 1;
+        const getTaskById = (id: number): Istates | undefined => {return tasks.find((task) => task.id === id);}
+        
+        const addTask = (name: string | undefined): void => {  //принимаем в аргумент значение инпута (название задачи) 
+            const id = idCounter + 1;                          //прибавляем к состоянию
             const task = {
                 id,
                 name,
                 state: 'backlog'
             }
-            setIdCounter(id);
-            setTasks([...tasks, task])
+            setIdCounter(id);                             //записываем в состояние
+            setTasks([...tasks, task])                    //push-им задачи в основной массив задач
         };
         
         const updateTask = (item: Istates | undefined) => {
@@ -73,20 +73,20 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
                 } 
         }; 
     
-        const getTasksByState = (state: string): Istates[] => {
+        const getTasksByState = (state: string): Istates[] => {       //получаем все задачи со своими state-ами
             return tasks.filter(task => task.state === state);
         };
 
-        const getTasksByExcludedState = (state: string): Istates[] => {
+        const getTasksByExcludedState = (state: string): Istates[] => {  //полумаем все задачи не равные state (для select)
             return tasks.filter(task => task.state !== state);
         }
-
-        const moveTask = (id: number, state: string) => {
-            const task = tasks.find((task) => task.id === id);
+        
+        const moveTask = (id: number, state: string) => {          //принимаем значение селекта как id и сам state
+            const task = getTaskById(id)                           //tasks.find((task) => task.id === id);
             if (task) {
                 task.state = state;
             }
-            setTasks([...tasks]);
+            setTasks([...tasks]);                                 //обновили массив задач
         }
 
         const getActiveTaskCount = () =>

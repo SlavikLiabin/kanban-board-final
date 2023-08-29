@@ -14,7 +14,7 @@ export const Column = ({ name, state }: Istates) => {
     const [selectedTaskId, setSelectedTaskId] = useState<string>();
 
     const {addTask, getTasksByState,  moveTask, getTasksByExcludedState} = useGlobalContext();
-   
+    
     const tasks = getTasksByState(state);
     const hasTask = tasks.length > 0;
 
@@ -58,12 +58,12 @@ export const Column = ({ name, state }: Istates) => {
                 <button className={style.buttonSub} onClick={() => {
                     if (state === 'backlog' && inputCardName) {
                         setIsNewTaskInputShown(false)
-                        addTask(inputCardName);
+                        addTask(inputCardName);                  //передаем аргумент название задачи
                         setInputCardName(undefined);
                     } else {
                         setIsNewTaskInputShown(false)
                         setIsNewTaskSelectShown(false);
-                        moveTask(Number(selectedTaskId), state);
+                        moveTask(Number(selectedTaskId), state);   //передаем аргумент значение селекта как id и state
                     }
                 }}
                 >Submit</button>
