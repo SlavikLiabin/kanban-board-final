@@ -29,6 +29,7 @@
 
 .menu {
     position: absolute;
+    top: 55px;
     right: 15px;
     width: 134px;
     height: 60px;

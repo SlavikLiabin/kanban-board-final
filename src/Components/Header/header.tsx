@@ -1,5 +1,6 @@
 import style from './header.module.css';
 import { UserAvatr } from '../Shared/Svg/userAvatar';
+import { Rectangle } from '../Shared/Svg/rectangle';
 import { ArrowDown } from '../Shared/Svg/arrowDown';
 import { ArrowUp } from  '../Shared/Svg/arrowUp';
 import { useState } from 'react';
@@ -17,9 +18,13 @@ export const Header = () => {
                         <ArrowUp /> : <ArrowDown />
                         }
 
-                        {!isMenuShown && <div className={style.menu}>
-                            <div className={style.item_1}>Profile</div>
-                            <div className={style.item_2}>Log Out</div>
+                        {!isMenuShown && 
+                        <div>
+                            <Rectangle />
+                                <div className={style.menu}>
+                                <div className={style.item_1}>Profile</div>
+                                <div className={style.item_2}>Log Out</div>
+                            </div>
                         </div>
                         }
                 </div>
