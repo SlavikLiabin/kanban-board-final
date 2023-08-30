@@ -18,7 +18,7 @@ export const CardDetail = () => {
         if (cardId) {
             setTask(getTaskById(Number(cardId)))
         }
-    }, [cardId])
+    }, [getTaskById, cardId])
 
     return (
         <div className={style.containerDetail}>

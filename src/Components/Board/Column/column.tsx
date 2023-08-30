@@ -2,7 +2,7 @@ import style from './column.module.css';
 import { Card } from './Card/card';
 import { Istates } from '../../Types/types';
 import { useGlobalContext } from '../../Context/taskContext';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import React, { ChangeEvent } from 'react';
 
 
