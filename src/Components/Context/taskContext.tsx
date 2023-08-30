@@ -78,8 +78,14 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             return tasks.filter(task => task.state === state);
         };
 
-        const getTasksByExcludedState = (state: string): Istates[] => {  //полумаем все задачи не равные state (для select)
-            return tasks.filter(task => task.state !== state);
+        const getTasksByExcludedState = (state: string): Istates[] | undefined => {  //полумаем все задачи не равные state (для select)
+            if(state === 'ready') {
+                return tasks.filter(task => task.state === 'backlog');
+            }else if(state === 'inProgress') {
+                return tasks.filter(task => task.state === 'ready');
+            }else if(state === 'finished') {
+                return tasks.filter(task => task.state === 'inProgress');
+            }
         }
         
         const moveTask = (id: number, state: string) => {          //принимаем значение селекта как id и сам state

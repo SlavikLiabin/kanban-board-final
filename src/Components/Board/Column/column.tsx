@@ -22,7 +22,6 @@ export const Column = ({ name, state }: Istates) => {
         setInputCardName(e.target.value);
     }
 
-     //!tasks.length && state !== 'backlog' ? butDisable : !butDisable
     
     return (
         <div className={style.column}> 
@@ -42,7 +41,7 @@ export const Column = ({ name, state }: Istates) => {
                         setSelectedTaskId(e.target.value)}
                     >
                         <option>Select task to add in "{name}"</option>
-                        {getTasksByExcludedState(state).map((task) =>
+                        {getTasksByExcludedState(state)?.map((task) =>
                             <option key={task.id} value={task.id}>{task.name}</option>
                         )}
                     </select>
