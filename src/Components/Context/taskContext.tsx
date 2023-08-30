@@ -109,7 +109,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         }
    
         const getActiveTaskCount = () =>
-            {return tasks.filter(task => task.state === 'backlog' || task.state === 'ready' || task.state === 'inProgress').length;}
+            {return tasks.filter(task => task.state === 'backlog').length;}
 
         const getFinishedTaskCount = () =>
             {return tasks.filter(task => task.state === 'finished').length;}
