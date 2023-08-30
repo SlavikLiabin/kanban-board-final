@@ -59,6 +59,11 @@
     background-color: white;
 }
 
+.buttonAdd:disabled {
+    background-color: #EBECF0;
+    cursor: default;
+}
+
 .buttonSub, .buttonCancel {
     font-family: 'Roboto';
     font-weight: 400;
