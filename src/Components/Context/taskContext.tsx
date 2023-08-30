@@ -78,7 +78,7 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             return tasks.filter(task => task.state === state);
         };
 
-        const getTasksByExcludedState = (state: string): Istates[] | undefined => {  //полумаем все задачи не равные state (для select)
+        const getTasksByExcludedState = (state: string): Istates[] | undefined => {  //определяем задачи и перемещаем нужные по стэйтам
             if(state === 'ready') {
                 return tasks.filter(task => task.state === 'backlog');
             }else if(state === 'inProgress') {
@@ -96,8 +96,12 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
             setTasks([...tasks]);                                 //обновили массив задач
         }
     
-        const toggleDisabled = (state: string): boolean | undefined => {
-            if(tasks.length === 0 && state !== 'backlog') {
+        const toggleDisabled = (state: string): boolean | undefined => {    //определяем какая из кнопок будет disabled
+            if(!getTasksByState('backlog').length && state === 'ready') {
+                return true
+            }else if(!getTasksByState('ready').length && state === 'inProgress'){
+                return true
+            }else if(!getTasksByState('inProgress').length && state === 'finished'){
                 return true
             }else{
                 return false

@@ -21,7 +21,6 @@ export const Column = ({ name, state }: Istates) => {
     const onInputCard = (e: ChangeEvent<HTMLInputElement>) => {
         setInputCardName(e.target.value);
     }
-
     
     return (
         <div className={style.column}> 
