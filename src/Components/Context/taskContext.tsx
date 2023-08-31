@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react"; 
 import { TchildrenProps, Istates, ImainDatas } from '../Types/types';
+import { nanoid } from 'nanoid';
 
 const context: ImainDatas = {
     states: [],
@@ -15,11 +16,15 @@ const context: ImainDatas = {
     toggleDisabled: () => {return false}
    }
 
+   
 export const TaskContext = createContext<ImainDatas>(context);
 export const useGlobalContext = () => useContext(TaskContext);
 
 export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
-
+    const size = 30;
+    const uniqe = nanoid(size).replace(/[^0-9]/g,"");
+    const resultId = Number(uniqe);
+    
     const [tasks, setTasks] = useState<Istates[]>([]);
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
     const [idCounter, setIdCounter] = useState<number>(0);
@@ -48,7 +53,8 @@ export const ContextWrapper = ({ children }: TchildrenProps): JSX.Element => {
         const getTaskById = (id: number): Istates | undefined => {return tasks.find((task) => task.id === id);}
         
         const addTask = (name: string | undefined): void => {  //принимаем в аргумент значение инпута (название задачи) 
-            const id = idCounter + 1;                          //прибавляем к состоянию
+            const id = idCounter + resultId; 
+            console.log(id)                        //прибавляем к состоянию
             const task = {
                 id,
                 name,
