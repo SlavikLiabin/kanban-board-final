@@ -19,7 +19,7 @@ export const Header = () => {
                         }
 
                         {!isMenuShown && 
-                        <div>
+                        <div className={style.wrapperMenu}>
                             <Rectangle />
                                 <div className={style.menu}>
                                 <div className={style.item_1}>Profile</div>

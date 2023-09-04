@@ -4,16 +4,16 @@
 }
 
 .footer {
-    position:absolute;
+    position: absolute;
     top: 645px;
-    width: 100%;
+    width: 1235px;
     height: 55px;
     background-color: #0067A3;
 }
 
 .areaInfo {
     display: flex;
-    justify-content: space-between;;
+    justify-content: space-between;
     margin: 15px 22px 0px 22px;
     font-size: 18px;
     font-family: 'Roboto';
@@ -25,4 +25,10 @@
     display: flex;
     justify-content: space-between;
     width: 300px;  
+}
+
+@media (min-width: 359px) and (max-width: 1235px) {
+    .footer{
+        display: none;
+    }
 }

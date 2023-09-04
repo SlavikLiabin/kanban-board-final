@@ -4,3 +4,11 @@
     column-gap: 25px;
 }
 
+@media (min-width: 359px) and (max-width: 1235px) {
+    .board{
+        flex-direction: column;
+        width: 300px;
+        margin: auto;
+        margin-top: 50px;
+    }
+}

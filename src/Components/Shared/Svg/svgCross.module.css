@@ -33,3 +33,9 @@
     background-color: #0067A3;
     cursor: pointer;
 }
+
+@media (min-width: 375px) and (max-width: 1300px) {
+    .buttonArrow{
+        background-color: #0079BF;
+    }
+}

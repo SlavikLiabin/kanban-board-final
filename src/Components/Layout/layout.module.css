@@ -6,3 +6,10 @@
     height: 700px;
     background-color: #0079BF;
 }
+
+@media (min-width: 359px) and (max-width: 1235px) {
+    .layout {
+        display: block;
+        position: relative;
+    }
+}
