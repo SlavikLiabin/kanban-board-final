@@ -74,11 +74,11 @@
     color: white;
 }
 
-@media (min-width: 375px) and (max-width: 1235px) {
+@media (min-width: 359px) and (max-width: 1235px) {
 
     .windowDetail {
         justify-content: center;
-        width: 470px;
+        width: 359px;
     }
 
     .wrapperTextArea {
@@ -86,12 +86,16 @@
          max-height: 500px;
     }
 
+    .cross {
+        margin-left: 0px;
+    }
+
     .name {
-        max-width: 359px;
+        max-width: 309px;
     }
 
     .description {
-        max-width: 359px;
+        max-width: 309px;
     }
 }
 
