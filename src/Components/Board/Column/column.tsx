@@ -39,9 +39,9 @@ export const Column = ({ name, state }: Istates) => {
                     <select className={style.select} onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                         setSelectedTaskId(e.target.value)}
                     >
-                        <option className={style.selectOptions}>Select task to add in "{name}"</option>
+                        <option>Select task to add in "{name}"</option>
                         {getTasksByExcludedState(state)?.map((task) =>
-                            <option className={style.selectOptions} key={task.id} value={task.id}>{task.name}</option>
+                            <option key={task.id} value={task.id}>{task.name}</option>
                         )}
                     </select>
                     }
