@@ -66,4 +66,8 @@
         top: -15px;
         right: 90px;
     }
+
+    .wrapperMenu {
+        width: 0px;
+    }
 }
