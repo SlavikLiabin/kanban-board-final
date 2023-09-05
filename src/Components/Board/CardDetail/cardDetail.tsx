@@ -4,9 +4,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useGlobalContext } from '../../Context/taskContext';
 import { Istates } from '../../Types/types';
+import { IcardDetailProps } from '../../Types/types';
 
 
-export const CardDetail = () => {
+
+export const CardDetail = ({ onClick }: IcardDetailProps) => {
     const navigate = useNavigate();
     const navigateBack = () => navigate(-1);
 
@@ -26,7 +28,7 @@ export const CardDetail = () => {
                 <div className={style.wrapperTextArea}>
                     {task && 
                         <>
-                            <textarea className={style.name} value={task.name} onChange={(e) =>
+                            <textarea className={style.name} value={task.name} data-testid="name-label-caption" onChange={(e) =>
                                 setTask({
                                     ...task,
                                     name: e.target.value

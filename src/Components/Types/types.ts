@@ -5,7 +5,11 @@ export type TchildrenProps = {
     children: ReactNode;
 }
 
-export interface Istates{
+export interface IcardDetailProps {
+    onClick?: () => void,
+}
+ 
+export interface Istates {
     id: number,
     name?: string,
     state: string,
