@@ -94,6 +94,7 @@
 
 .input {
     width: 258px;
+    padding: 5px 0px 5px 7px;
     min-height: 25px;
     max-height: 50px;
     border-radius: 5px;

@@ -6,7 +6,7 @@
 .card {
     display: flex;
     min-height: 25px;
-    max-height: 40px;
+    max-height: 42px;
     margin-top: 7px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -15,6 +15,7 @@
 }
 
 .fillFieldTask {
+    padding-left: 6px;
     margin-top: 1px;
     font-family: 'Roboto';
     font-weight: 400;
@@ -26,7 +27,6 @@
 }
 
 .textCard {
-    padding-left: 5px;
     font-size: 15px;
     
 }
