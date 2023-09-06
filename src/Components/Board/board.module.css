@@ -7,9 +7,9 @@
 
 @media (min-width: 359px) and (max-width: 1235px) {
     .board{
-        flex-direction: column;
+        flex-wrap: wrap;
         width: 300px;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 70px;
     }
 }
